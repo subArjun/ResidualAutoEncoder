@@ -89,9 +89,9 @@ class ResidualEncoder(nn.Module):
         )
 
     def forward(self, x):
-        y = self.encoder(x)
-        y = self.bottleneck_encoder(x)
-        return y
+        x = self.encoder(x)
+        x = self.bottleneck_encoder(x)
+        return x
     
 
 class ResidualDecoder(nn.Module):
@@ -106,6 +106,7 @@ class ResidualDecoder(nn.Module):
         self.bottleneck_decoder = nn.Sequential(
             nn.Linear(bottleneck_dim, flattened_dim),
             nn.ReLU(inplace=True)
+            nn.Unflatten(1, (in_channels, self.feature_map_size, self.feature_map_size))
         )
         
         decoder_layers = []
@@ -120,10 +121,9 @@ class ResidualDecoder(nn.Module):
         
 
     def forward(self, x):
-        y = self.decoder(x)
-        y = nn.unflatten(y)
-        y = self.bottleneck_decoder(x)
-        return y
+        x = self.bottleneck_decoder(x)
+        x = self.decoder(x)
+        return x
 
 class ResidualAutoencoder(nn.Module):
     def __init__(self, num_blocks=3, block_depth=2, bottleneck_dim=128, input_size=128):
