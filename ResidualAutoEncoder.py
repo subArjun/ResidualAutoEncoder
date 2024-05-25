@@ -14,7 +14,7 @@ class ResidualEncoderBlock(nn.Module):
             layers.append(nn.Conv2d(in_channels if i == 0 else out_channels, out_channels, kernel_size, stride=stride_i, padding=1))
             layers.append(nn.BatchNorm2d(out_channels))
             layers.append(nn.ReLU(inplace=True))
-        layers.append(nn.Conv2d(in_channels if i == 0 else out_channels, out_channels, kernel_size, padding=1))
+        layers.append(nn.Conv2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, padding=1))
         layers.append(nn.BatchNorm2d(out_channels))
         self.block = nn.Sequential(*layers)
         
@@ -45,7 +45,7 @@ class ResidualDecoderBlock(nn.Module):
             layers.append(nn.ConvTranspose2d(in_channels if i == 0 else out_channels, out_channels, kernel_size, stride=stride_i, padding=1, output_padding=output_padding))
             layers.append(nn.BatchNorm2d(out_channels))
             layers.append(nn.ReLU(inplace=True))
-        layers.append(nn.ConvTranspose2d(in_channels if i == 0 else out_channels, out_channels, kernel_size, stride=1, padding=1))
+        layers.append(nn.ConvTranspose2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, stride=1, padding=1))
         layers.append(nn.BatchNorm2d(out_channels))
         self.block = nn.Sequential(*layers)
         
