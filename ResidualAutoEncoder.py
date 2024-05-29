@@ -4,6 +4,9 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
 import matplotlib.pyplot as plt
+import torchmetrics as metrics
+from torch.cuda.amp import autocast, GradScaler
+import torch.nn.functional as F
 
 class ResidualEncoderBlock(nn.Module):
     def __init__(self, in_channels, out_channels, num_layers=2, kernel_size=3, stride=2):
@@ -127,53 +130,69 @@ class ResidualDecoder(nn.Module):
     def forward(self, x):
         x = self.bottleneck_decoder(x)
         x = self.decoder(x)
-        x = self.final_conv(x)
+        x = F.tanh(self.final_conv(x))
         return x
 
 class ResidualAutoencoder(nn.Module):
-    def __init__(self, num_blocks=3, block_depth=2, bottleneck_dim=128, input_size=128, channels=3, asym_block=1, asym_depth=1):
+    def __init__(self, num_blocks=3, block_depth=2, bottleneck_dim=128, input_size=128, channels=3, asym_block=1, asym_depth=1, device=torch.device('cpu')):
         super(ResidualAutoencoder, self).__init__()
         
         self.ResidualEncoder = ResidualEncoder(num_blocks=num_blocks, block_depth=block_depth, bottleneck_dim=bottleneck_dim, input_size=input_size, channels=channels)
         self.ResidualDecoder = ResidualDecoder(num_blocks=num_blocks * asym_block, block_depth=block_depth * asym_depth, bottleneck_dim=bottleneck_dim, input_size=input_size, channels=channels)
         
+        self.device = device
+        self.to(self.device)
     def forward(self, x):
-        x = self.ResidualEncoder(x)
-        x = self.ResidualDecoder(x)
-        return x
+        h = self.ResidualEncoder(x)
+        x = self.ResidualDecoder(h)
+        return x, h
     
     def encode(self, x):
-        return self.ResidualEncoder(x)
+        with torch.no_grad():
+            return self.ResidualEncoder(x)
     
     def decode(self, x):
-        return self.ResidualDecoder(x)
+        with torch.no_grad():
+            return self.ResidualDecoder(x)
+        
+    def save(self, path):
+        torch.save(self.state_dict(), path)
+        
+    def load(self, path):
+        self.load_state_dict(torch.load(path))
+        
+        
     
-    def train_harness(self,model, train_loader, criterion, optimizer, device, epochs=10, l1_lambda= 0.0001, l1_lambda_bottleneck=0.01):
+    def train_harness(self, model, train_loader, criterion, optimizer, epochs=10):
+        device = model.device
         model.train()
-        scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=5)
+        scaler = GradScaler()
+        scheduler = optim.lr_scheduler.ReduceLROnPlateau(optimizer, patience=3, verbose=True)
         for epoch in range(epochs):
             train_loss = 0.0
             for data in train_loader:
                 inputs, _ = data
 
                 inputs = inputs.to(device)
-                
-                # Forward pass
-                outputs = model(inputs)
-                loss = criterion(outputs, inputs)
-                loss = self.l1_reg(model, loss, l1_lambda=l1_lambda, l1_lambda_bottleneck=l1_lambda_bottleneck)
-                
-                # Backward pass and optimization
                 optimizer.zero_grad()
-                loss.backward()
-                optimizer.step()
+                with autocast():
+                    # Forward pass
+                    outputs, h = model(inputs)
+                    loss, recon_loss = criterion(outputs, inputs, h)
+            
+                # Backward pass and optimization
+                scaler.scale(loss).backward()
+                scaler.step(optimizer)
+                scaler.update()
                 
+                recon_loss = recon_loss.item() * inputs.size(0)
                 train_loss += loss.item() * inputs.size(0)
            
             # Calculate average loss
             train_loss /= len(train_loader.dataset)
+            recon_loss /= len(train_loader.dataset)
             scheduler.step(train_loss)
-            print(f"Epoch [{epoch + 1}/{epochs}], Loss: {train_loss:.4f}, learning rate: {scheduler.get_last_lr()[0]}")
+            print(f"Epoch [{epoch + 1}/{epochs}], Loss: {train_loss:.4f}, recon_loss: {recon_loss:.4f} learning rate: {scheduler.get_last_lr()[0]}")
             
             torch.cuda.empty_cache()
 
@@ -183,25 +202,63 @@ class ResidualAutoencoder(nn.Module):
             data_iter = iter(test_loader)
             inputs, _ = next(data_iter)
             inputs = inputs.to(device)
-            outputs = model(inputs)
+            outputs, _ = model(inputs)
             return inputs.cpu(), outputs.cpu()
     
-    def l1_reg(self, model, loss, l1_lambda=0.001, l1_lambda_bottleneck=0.01):
-        L1_term = torch.tensor(0., requires_grad=True)
-        nweights = 0
-        for name, weights in model.named_parameters():
-            if 'bias' not in name:
+    def l1_reg(self, l1_lambda_bottleneck=0.01):
+        L1_term = torch.tensor(0., device=self.device)  # Ensure tensor is on the same device as the model
+
+        for name, weights in self.named_parameters():
+            if 'bias' not in name and 'bottleneck' in name:
                 weights_sum = torch.sum(torch.abs(weights))
-                L1_term = L1_term + weights_sum
-                nweights = nweights + weights.numel()
+                L1_term += weights_sum * l1_lambda_bottleneck                   
 
-        L1_term = L1_term / nweights
-        
         # Regularize loss using L1 regularization
-        loss = loss - L1_term * l1_lambda if 'bottleneck' not in name else loss - L1_term * l1_lambda_bottleneck
-        
-        return loss
+        return L1_term
 
+    def sparse_loss(self, h, p=0.1):
+        q = h.mean(dim=0)
+        return (p * torch.log(p / q) + (1 - p) * torch.log((1 - p) / (1 - q))).sum()
+
+class Criterion():
+    def __init__(self, model, l1_lambda_bottleneck=0.01, lambda_sparse=0.1, lambda_tv=1e-6, lambda_perceptual=0.1, lambda_mse=1.0, lambda_ssim=1.0, lambda_psnr=1.0):
+        self.model = model
+        self.l1_lambda_bottleneck = l1_lambda_bottleneck
+        self.lambda_sparse = lambda_sparse
+        self.lambda_tv = lambda_tv
+        self.lambda_perceptual = lambda_perceptual
+        self.lambda_mse = lambda_mse
+        self.lambda_ssim = lambda_ssim
+        self.lambda_psnr = lambda_psnr
+        
+        self.reconstruction_loss = nn.MSELoss().to(self.model.device)
+        self.psnr_loss = metrics.image.PeakSignalNoiseRatio().to(self.model.device)
+        
+        self.ssim_metric = metrics.image.StructuralSimilarityIndexMeasure().to(self.model.device)
+        self.tvloss = metrics.image.TotalVariation().to(self.model.device)
+        self.l1loss = self.model.l1_reg
+        self.kl_divergence = self.model.sparse_loss
+        self.lpips = metrics.image.lpip.LearnedPerceptualImagePatchSimilarity(net_type='vgg').to(self.model.device)
+        
+    def __call__(self, outputs,targets, h):
+        recon_loss = self.reconstruction_loss(outputs, targets)
+        loss = F.softplus(recon_loss) * self.lambda_mse
+        loss += F.softplus(self.l1loss(l1_lambda_bottleneck=self.l1_lambda_bottleneck))
+        loss += F.softplus(self.kl_divergence(h)) * self.lambda_sparse
+        
+        if torch.rand(1).item() < 0.5:  # 50% of the time
+            loss += F.softplus(self.tvloss(outputs)) * self.lambda_tv
+            
+        if torch.rand(1).item() < 0.2:  # 20% of the time
+            loss += F.softplus(self.lpips(outputs, targets)) * self.lambda_perceptual
+        
+        if torch.rand(1).item() < 0.5:  # 50% of the time
+            loss += F.softplus(self.psnr_loss(outputs, targets)) * self.lambda_psnr
+            
+        if torch.rand(1).item() < 0.5:  # 50% of the time
+            loss += F.softplus(self.ssim_metric(outputs, targets)) * self.lambda_ssim
+        return loss, recon_loss
+        
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
