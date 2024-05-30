@@ -205,7 +205,7 @@ class ResidualAutoencoder(nn.Module):
            
             train_loss /= len(train_loader.dataset)  # Average total loss
             reconstruction_loss /= len(train_loader.dataset)  # Average reconstruction loss
-            scheduler.step(reconstruction_loss)  # Step scheduler
+            scheduler.step(val_loss)  # Step scheduler
             _, _, val_loss = model.evaluate_harness(model, test_loader, device)  # Evaluate on validation set
             print(f"Epoch [{epoch + 1}/{epochs}], Loss: {train_loss:.4f}, recon_loss: {recon_loss:.4f}, val_loss: {val_loss:.4f} learning rate: {scheduler.get_last_lr()[0]}")
             torch.cuda.empty_cache()
