@@ -1,0 +1,923 @@
+2024-05-30 03:39:24,339 INFO    StreamThr :74192 [internal.py:wandb_internal():85] W&B internal server running at pid: 74192, started at: 2024-05-30 03:39:24.338169
+2024-05-30 03:39:24,340 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status
+2024-05-30 03:39:24,344 INFO    WriterThread:74192 [datastore.py:open_for_write():87] open: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\run-ri1z5acl.wandb
+2024-05-30 03:39:24,344 DEBUG   SenderThread:74192 [sender.py:send():378] send: header
+2024-05-30 03:39:24,366 DEBUG   SenderThread:74192 [sender.py:send():378] send: run
+2024-05-30 03:39:24,933 INFO    SenderThread:74192 [dir_watcher.py:__init__():211] watching files in: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files
+2024-05-30 03:39:24,933 INFO    SenderThread:74192 [sender.py:_start_run_threads():1123] run started: ri1z5acl with start time 1717054764.338168
+2024-05-30 03:39:24,940 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: check_version
+2024-05-30 03:39:24,940 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: check_version
+2024-05-30 03:39:25,320 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: run_start
+2024-05-30 03:39:25,404 DEBUG   HandlerThread:74192 [system_info.py:__init__():26] System info init
+2024-05-30 03:39:25,404 DEBUG   HandlerThread:74192 [system_info.py:__init__():41] System info init done
+2024-05-30 03:39:25,404 INFO    HandlerThread:74192 [system_monitor.py:start():194] Starting system monitor
+2024-05-30 03:39:25,405 INFO    SystemMonitor:74192 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-05-30 03:39:25,405 INFO    HandlerThread:74192 [system_monitor.py:probe():214] Collecting system info
+2024-05-30 03:39:25,436 INFO    SystemMonitor:74192 [interfaces.py:start():188] Started cpu monitoring
+2024-05-30 03:39:25,437 INFO    SystemMonitor:74192 [interfaces.py:start():188] Started disk monitoring
+2024-05-30 03:39:25,437 INFO    SystemMonitor:74192 [interfaces.py:start():188] Started gpu monitoring
+2024-05-30 03:39:25,451 INFO    SystemMonitor:74192 [interfaces.py:start():188] Started memory monitoring
+2024-05-30 03:39:25,460 INFO    SystemMonitor:74192 [interfaces.py:start():188] Started network monitoring
+2024-05-30 03:39:25,467 DEBUG   HandlerThread:74192 [system_info.py:probe():150] Probing system
+2024-05-30 03:39:25,468 DEBUG   HandlerThread:74192 [system_info.py:_probe_git():135] Probing git
+2024-05-30 03:39:25,503 DEBUG   HandlerThread:74192 [system_info.py:_probe_git():143] Probing git done
+2024-05-30 03:39:25,503 DEBUG   HandlerThread:74192 [system_info.py:probe():198] Probing system done
+2024-05-30 03:39:25,503 DEBUG   HandlerThread:74192 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.11.9', 'heartbeatAt': '2024-05-30T07:39:25.468144', 'startedAt': '2024-05-30T07:39:24.324166', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '<python with no main file>', 'codePathLocal': None, 'git': {'remote': 'https://github.com/subArjun/ResidualAutoEncoder.git', 'commit': 'ecc5205c0c1592b6177eb501624669bbeda740f9'}, 'email': 'assubram@purdue.edu', 'root': 'C:/Users/Arjun/ResidualAutoEncoder', 'host': 'EtherHive', 'username': 'Arjun', 'executable': 'c:\\Users\\Arjun\\anaconda3\\envs\\PyTorch\\python.exe', 'cpu_count': 24, 'cpu_count_logical': 32, 'cpu_freq': {'current': 3200.0, 'min': 0.0, 'max': 3200.0}, 'cpu_freq_per_core': [{'current': 3200.0, 'min': 0.0, 'max': 3200.0}], 'disk': {'/': {'total': 3814.5820274353027, 'used': 1322.8726272583008}}, 'gpu': 'NVIDIA GeForce RTX 4090', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4090', 'memory_total': 25757220864}], 'memory': {'total': 63.71458435058594}}
+2024-05-30 03:39:25,503 INFO    HandlerThread:74192 [system_monitor.py:probe():224] Finished collecting system info
+2024-05-30 03:39:25,503 INFO    HandlerThread:74192 [system_monitor.py:probe():227] Publishing system info
+2024-05-30 03:39:25,503 DEBUG   HandlerThread:74192 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-05-30 03:39:25,504 ERROR   HandlerThread:74192 [system_info.py:_save_conda():221] Error saving conda packages: [WinError 2] The system cannot find the file specified
+Traceback (most recent call last):
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\wandb\sdk\internal\system\system_info.py", line 214, in _save_conda
+    subprocess.call(
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\subprocess.py", line 389, in call
+    with Popen(*popenargs, **kwargs) as p:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\subprocess.py", line 1026, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\subprocess.py", line 1538, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+2024-05-30 03:39:25,505 DEBUG   HandlerThread:74192 [system_info.py:_save_conda():222] Saving conda packages done
+2024-05-30 03:39:25,514 INFO    HandlerThread:74192 [system_monitor.py:probe():229] Finished publishing system info
+2024-05-30 03:39:25,516 DEBUG   SenderThread:74192 [sender.py:send():378] send: files
+2024-05-30 03:39:25,516 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-metadata.json with policy now
+2024-05-30 03:39:25,587 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: python_packages
+2024-05-30 03:39:25,587 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: python_packages
+2024-05-30 03:39:25,588 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:39:25,588 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:39:25,948 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\requirements.txt
+2024-05-30 03:39:25,949 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-metadata.json
+2024-05-30 03:39:25,949 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\conda-environment.yaml
+2024-05-30 03:39:25,957 DEBUG   SenderThread:74192 [sender.py:send():378] send: telemetry
+2024-05-30 03:39:26,022 INFO    wandb-upload_0:74192 [upload_job.py:push():130] Uploaded file C:\Users\Arjun\AppData\Local\Temp\tmpf7eypobuwandb\njxkij4s-wandb-metadata.json
+2024-05-30 03:39:26,961 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:39:27,970 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:39:28,982 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:39:29,631 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:34,674 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:39,738 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:40,613 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:39:40,613 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:39:44,811 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:49,862 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:54,930 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:39:55,248 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\config.yaml
+2024-05-30 03:39:55,611 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:39:55,611 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:40:00,720 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:05,785 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:10,625 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:40:10,625 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:40:10,803 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:15,819 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:20,870 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:25,469 DEBUG   SystemMonitor:74192 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-05-30 03:40:25,469 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:40:25,635 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:40:25,635 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:40:26,739 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:31,450 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:40:31,451 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:40:31,451 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:40:31,451 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:40:31,564 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_created():271] file/dir created: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:40:32,452 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:32,573 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:40:37,495 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:40,650 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:40:40,650 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:40:42,770 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:47,811 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:52,837 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:40:55,482 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:40:55,663 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:40:55,663 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:40:58,813 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:03,871 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:08,929 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:10,672 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:41:10,672 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:41:14,798 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:19,861 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:24,903 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:25,492 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:41:25,673 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:41:25,673 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:41:30,783 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:32,953 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:41:32,954 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:41:32,954 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:41:32,954 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:41:33,165 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:41:34,178 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:41:35,990 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:40,680 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:41:40,680 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:41:41,850 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:46,904 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:51,959 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:41:55,507 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:41:55,702 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:41:55,702 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:41:57,797 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:02,841 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:07,881 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:10,708 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:42:10,708 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:42:13,825 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:18,898 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:23,951 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:25,510 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:42:25,723 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:42:25,723 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:42:29,867 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:34,214 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:42:34,214 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:42:34,214 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:42:34,214 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:42:34,775 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:42:35,216 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:36,779 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:42:40,275 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:40,714 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:42:40,714 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:42:45,855 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:50,885 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:42:55,514 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:42:55,725 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:42:55,725 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:42:56,830 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:01,897 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:06,932 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:10,743 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:43:10,743 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:43:12,845 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:17,890 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:22,930 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:25,514 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:43:25,757 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:43:25,757 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:43:28,873 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:33,915 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:35,980 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:43:35,982 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:43:35,982 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:43:35,983 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:43:36,464 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:43:38,481 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:43:39,025 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:40,770 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:43:40,770 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:43:44,900 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:49,936 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:54,991 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:43:55,520 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:43:55,779 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:43:55,779 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:44:00,895 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:05,933 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:10,787 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:44:10,787 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:44:11,860 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:16,912 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:21,967 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:25,521 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:44:25,781 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:44:25,781 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:44:30,823 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:44:33,199 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:38,256 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:38,512 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:44:38,512 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:44:38,512 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:44:38,513 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:44:39,161 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:44:40,164 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:44:40,789 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:44:40,789 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:44:43,889 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:48,944 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:54,004 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:44:55,530 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:44:55,802 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:44:55,802 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:44:59,979 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:05,031 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:10,101 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:10,796 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:45:10,796 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:45:15,980 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:21,019 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:25,543 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:45:25,799 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:45:25,799 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:45:26,950 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:31,988 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:37,038 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:40,456 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:45:40,457 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:45:40,457 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:45:40,457 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:45:40,812 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:45:40,812 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:45:40,949 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:45:42,902 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:42,978 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:45:47,970 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:53,012 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:45:55,543 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:45:55,832 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:45:55,832 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:45:58,929 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:03,998 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:09,035 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:10,833 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:46:10,833 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:46:14,042 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:19,080 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:24,112 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:25,553 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:46:25,839 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:46:25,839 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:46:30,034 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:35,052 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:40,123 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:40,849 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:46:40,849 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:46:42,537 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:46:42,538 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:46:42,538 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:46:42,538 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:46:42,688 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:46:44,698 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:46:45,560 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:50,610 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:46:55,567 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:46:55,853 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:46:55,854 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:46:56,010 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:01,060 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:06,092 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:10,858 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:47:10,859 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:47:11,947 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:17,006 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:22,062 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:25,580 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:47:25,867 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:47:25,868 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:47:27,987 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:33,032 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:38,090 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:40,872 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:47:40,872 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:47:43,947 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:44,609 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:47:44,609 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:47:44,609 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:47:44,610 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:47:45,494 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:47:46,505 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:47:49,652 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:54,698 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:47:55,591 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:47:55,893 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:47:55,893 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:48:00,058 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:05,112 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:10,164 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:10,908 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:48:10,908 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:48:16,103 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:21,135 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:25,602 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:48:25,919 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:48:25,919 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:48:27,056 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:32,116 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:37,159 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:40,924 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:48:40,924 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:48:43,002 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:46,764 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:48:46,764 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:48:46,764 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:48:46,764 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:48:47,241 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:48:48,254 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:48:48,782 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:53,843 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:48:55,613 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:48:55,931 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:48:55,931 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:48:59,093 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:04,140 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:09,196 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:10,939 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:49:10,940 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:49:15,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:20,092 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:25,139 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:25,628 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:49:25,955 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:49:25,956 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:49:31,094 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:36,141 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:40,962 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:49:40,962 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:49:42,052 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:47,110 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:48,789 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:49:48,789 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:49:48,789 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:49:48,790 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:49:48,818 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:49:50,832 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:49:52,817 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:49:55,635 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:49:55,968 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:49:55,968 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:49:58,131 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:03,174 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:08,224 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:10,962 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:50:10,962 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:50:14,100 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:19,169 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:24,219 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:25,646 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:50:25,966 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:50:25,966 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:50:30,095 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:35,125 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:40,133 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:40,963 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:50:40,963 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:50:46,125 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:50,413 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:50:50,414 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:50:50,414 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:50:50,414 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:50:51,303 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:50:51,426 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:50:52,317 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:50:55,647 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:50:55,980 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:50:55,980 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:50:57,110 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:02,159 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:07,190 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:10,991 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:51:10,991 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:51:13,096 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:18,141 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:23,200 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:25,657 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:51:25,988 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:51:25,988 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:51:29,142 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:34,164 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:39,221 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:41,122 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:51:41,122 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:51:41,123 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:51:44,300 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:49,305 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:53,750 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:51:53,751 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:51:53,751 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:51:53,751 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:51:53,816 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:51:54,755 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:51:54,817 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:51:55,663 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:51:56,133 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:51:56,133 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:51:56,133 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:52:00,342 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:05,401 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:10,441 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:11,153 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:52:11,153 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:52:11,153 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:52:16,274 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:21,326 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:25,675 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:52:26,158 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:52:26,158 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:52:26,158 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:52:27,324 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:32,336 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:37,380 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:41,160 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:52:41,160 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:52:41,160 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:52:43,251 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:48,285 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:53,352 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:52:55,384 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:52:55,385 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:52:55,385 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:52:55,385 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:52:55,685 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:52:56,154 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:52:56,154 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:52:56,154 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:52:56,323 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:52:56,323 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:52:59,238 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:04,280 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:09,340 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:11,156 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:53:11,171 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:53:11,171 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:53:15,345 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:20,412 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:25,460 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:25,687 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:53:26,169 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:53:26,184 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:53:26,184 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:53:31,395 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:36,459 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:41,168 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:53:41,198 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:53:41,198 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:53:42,288 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:47,356 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:52,411 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:55,688 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:53:56,174 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:53:56,219 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:53:56,219 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:53:57,047 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:53:57,047 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:53:57,047 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:53:57,048 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:53:58,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:53:58,049 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:53:59,060 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:54:03,116 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:08,186 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:11,184 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:54:11,214 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:54:11,214 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:54:13,361 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:18,406 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:23,471 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:25,693 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:54:26,192 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:54:26,222 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:54:26,223 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:54:29,417 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:34,475 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:39,522 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:41,203 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:54:41,218 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:54:41,218 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:54:45,350 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:50,419 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:55,459 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:54:55,701 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:54:56,199 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:54:56,229 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:54:56,229 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:54:58,810 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:54:58,810 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:54:58,810 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:54:58,811 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:54:59,798 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:55:00,827 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:55:00,827 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:05,886 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:10,956 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:11,210 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:55:11,241 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:55:11,241 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:55:16,369 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:21,430 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:25,713 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:55:26,227 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:55:26,257 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:55:26,257 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:55:27,435 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:32,493 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:37,559 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:41,233 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:55:41,263 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:55:41,263 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:55:43,412 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:48,466 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:53,534 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:55,717 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:55:56,248 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:55:56,263 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:55:56,263 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:55:59,393 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:55:59,930 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:55:59,931 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:55:59,931 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:55:59,931 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:56:00,562 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:56:00,562 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:56:04,963 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:10,007 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:11,249 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:56:11,264 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:56:11,264 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:56:15,408 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:20,426 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:25,471 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:25,737 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:56:26,256 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:56:26,272 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:56:26,272 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:56:31,447 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:36,486 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:41,259 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:56:41,274 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:56:41,274 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:56:42,426 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:47,461 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:52,501 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:56:55,740 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:56:56,268 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:56:56,284 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:56:56,284 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:56:58,447 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:01,365 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:57:01,365 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:57:01,365 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:57:01,365 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:57:02,348 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:57:02,348 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:57:04,387 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:09,444 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:11,278 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:57:11,293 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:57:11,293 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:57:14,467 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:19,512 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:24,541 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:25,754 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:57:26,299 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:57:26,299 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:57:26,299 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:57:30,453 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:35,493 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:40,548 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:41,306 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:57:41,306 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:57:41,306 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:57:46,527 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:51,584 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:57:55,765 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:57:56,327 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:57:56,327 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:57:56,327 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:57:57,462 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:02,507 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:03,553 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:58:03,553 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:58:03,553 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:58:03,554 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:58:04,145 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:58:05,152 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:58:07,585 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:11,342 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:58:11,342 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:58:11,342 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:58:13,493 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:18,548 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:23,592 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:25,776 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:58:26,338 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:58:26,338 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:58:26,338 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:58:29,440 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:34,477 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:39,553 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:41,348 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:58:41,348 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:58:41,348 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:58:45,541 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:50,573 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:55,603 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:58:55,785 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:58:56,351 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:58:56,351 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 03:58:56,351 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:59:01,574 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:04,557 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 03:59:04,557 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 03:59:04,557 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 03:59:04,557 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 03:59:04,835 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 03:59:06,858 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 03:59:07,579 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:11,357 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:59:11,357 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:59:13,493 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:18,537 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:23,600 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:25,795 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:59:26,370 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:59:26,371 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:59:29,556 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:34,589 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:39,608 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:41,385 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:59:41,385 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:59:45,542 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:50,582 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:55,602 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 03:59:55,800 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 03:59:56,410 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 03:59:56,410 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 03:59:56,410 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:00:01,609 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:06,140 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:00:06,140 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:00:06,140 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:00:06,140 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:00:06,563 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:00:06,563 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:00:07,140 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:11,402 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:00:11,402 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:00:12,574 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:17,606 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:22,638 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:25,804 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:00:26,411 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:00:26,411 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:00:27,743 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:32,786 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:37,815 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:41,426 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:00:41,426 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:00:43,614 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:48,668 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:53,728 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:00:55,810 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:00:56,592 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:00:56,592 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:00:56,592 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:00:58,764 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:03,805 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:07,685 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:01:07,685 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:01:07,685 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:01:07,686 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:01:08,241 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:01:09,246 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:01:09,700 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:11,602 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:01:11,602 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:01:11,602 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:01:14,804 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:19,853 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:24,876 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:25,816 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:01:26,607 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:01:26,607 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:01:30,741 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:35,773 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:40,790 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:41,624 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:01:41,624 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:01:46,774 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:51,837 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:01:55,818 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:01:56,616 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:01:56,617 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:01:57,779 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:02,829 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:07,897 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:08,863 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:02:08,863 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:02:08,863 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:02:08,864 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:02:08,907 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:02:10,925 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:02:11,629 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:02:11,629 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:02:13,740 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:18,783 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:23,798 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:25,831 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:02:26,636 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:02:26,636 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:02:29,787 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:34,809 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:39,838 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:41,647 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:02:41,647 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:02:45,780 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:50,810 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:55,832 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:02:55,833 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:02:56,791 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:02:56,792 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:02:56,792 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:03:00,924 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:05,966 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:09,305 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:03:09,306 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:03:09,306 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:03:09,306 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:03:09,661 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:03:10,674 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:03:11,315 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:11,800 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:03:11,800 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:03:11,800 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:03:16,973 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:22,009 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:25,841 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:03:26,797 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:03:26,797 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:03:26,797 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:03:27,949 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:32,973 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:38,017 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:41,799 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:03:41,799 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:03:43,973 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:49,008 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:54,034 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:03:55,843 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:03:56,815 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:03:56,815 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:03:56,816 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:04:00,011 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:05,052 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:10,096 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:11,819 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:04:11,820 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: keepalive
+2024-05-30 04:04:11,820 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:04:12,924 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:04:12,924 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:04:12,924 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:04:12,925 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:04:13,409 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:04:14,423 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:04:15,935 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:20,983 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:25,858 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:04:26,826 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:04:26,826 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:04:26,953 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:31,973 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:37,029 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:41,829 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:04:41,829 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:04:43,005 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:48,027 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:53,060 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:04:55,856 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:04:56,837 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:04:56,837 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:04:59,019 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:05:04,066 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:05:09,097 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:05:11,841 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: stop_status
+2024-05-30 04:05:11,841 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: stop_status
+2024-05-30 04:05:13,264 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: partial_history
+2024-05-30 04:05:13,265 DEBUG   SenderThread:74192 [sender.py:send():378] send: history
+2024-05-30 04:05:13,265 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: summary_record
+2024-05-30 04:05:13,265 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:05:13,266 DEBUG   SenderThread:74192 [sender.py:send():378] send: telemetry
+2024-05-30 04:05:13,266 DEBUG   SenderThread:74192 [sender.py:send():378] send: exit
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:send_exit():585] handling exit code: 0
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:send_exit():587] handling runtime: 1547
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:send_exit():593] send defer
+2024-05-30 04:05:13,266 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,266 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 0
+2024-05-30 04:05:13,266 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 0
+2024-05-30 04:05:13,266 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 1
+2024-05-30 04:05:13,266 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,266 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 1
+2024-05-30 04:05:13,267 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,267 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 1
+2024-05-30 04:05:13,267 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 2
+2024-05-30 04:05:13,267 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,267 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 2
+2024-05-30 04:05:13,267 INFO    HandlerThread:74192 [system_monitor.py:finish():203] Stopping system monitor
+2024-05-30 04:05:13,267 DEBUG   SystemMonitor:74192 [system_monitor.py:_start():179] Finished system metrics aggregation loop
+2024-05-30 04:05:13,277 DEBUG   SystemMonitor:74192 [system_monitor.py:_start():183] Publishing last batch of metrics
+2024-05-30 04:05:13,277 INFO    HandlerThread:74192 [interfaces.py:finish():200] Joined cpu monitor
+2024-05-30 04:05:13,277 INFO    HandlerThread:74192 [interfaces.py:finish():200] Joined disk monitor
+2024-05-30 04:05:13,345 INFO    HandlerThread:74192 [interfaces.py:finish():200] Joined gpu monitor
+2024-05-30 04:05:13,345 INFO    HandlerThread:74192 [interfaces.py:finish():200] Joined memory monitor
+2024-05-30 04:05:13,345 INFO    HandlerThread:74192 [interfaces.py:finish():200] Joined network monitor
+2024-05-30 04:05:13,345 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,345 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 2
+2024-05-30 04:05:13,345 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 3
+2024-05-30 04:05:13,345 DEBUG   SenderThread:74192 [sender.py:send():378] send: stats
+2024-05-30 04:05:13,346 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,346 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 3
+2024-05-30 04:05:13,346 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,346 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 3
+2024-05-30 04:05:13,346 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 4
+2024-05-30 04:05:13,346 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,346 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 4
+2024-05-30 04:05:13,346 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,346 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 4
+2024-05-30 04:05:13,346 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 5
+2024-05-30 04:05:13,346 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,346 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 5
+2024-05-30 04:05:13,346 DEBUG   SenderThread:74192 [sender.py:send():378] send: summary
+2024-05-30 04:05:13,347 INFO    SenderThread:74192 [sender.py:_save_file():1389] saving file wandb-summary.json with policy end
+2024-05-30 04:05:13,347 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,347 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 5
+2024-05-30 04:05:13,347 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 6
+2024-05-30 04:05:13,347 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,347 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 6
+2024-05-30 04:05:13,347 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,347 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 6
+2024-05-30 04:05:13,348 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: status_report
+2024-05-30 04:05:13,443 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 7
+2024-05-30 04:05:13,444 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:13,444 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 7
+2024-05-30 04:05:13,444 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:13,444 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 7
+2024-05-30 04:05:14,147 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\config.yaml
+2024-05-30 04:05:14,147 INFO    Thread-16 :74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:05:14,270 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-30 04:05:15,025 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 8
+2024-05-30 04:05:15,025 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: poll_exit
+2024-05-30 04:05:15,025 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:15,025 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 8
+2024-05-30 04:05:15,025 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:15,025 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 8
+2024-05-30 04:05:15,025 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 9
+2024-05-30 04:05:15,025 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:15,025 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 9
+2024-05-30 04:05:15,025 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:15,025 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 9
+2024-05-30 04:05:15,025 INFO    SenderThread:74192 [dir_watcher.py:finish():358] shutting down directory watcher
+2024-05-30 04:05:15,158 INFO    SenderThread:74192 [dir_watcher.py:_on_file_modified():288] file/dir modified: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:05:15,158 INFO    SenderThread:74192 [dir_watcher.py:finish():388] scan: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files
+2024-05-30 04:05:15,159 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\conda-environment.yaml conda-environment.yaml
+2024-05-30 04:05:15,159 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\config.yaml config.yaml
+2024-05-30 04:05:15,159 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log output.log
+2024-05-30 04:05:15,159 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\requirements.txt requirements.txt
+2024-05-30 04:05:15,161 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-metadata.json wandb-metadata.json
+2024-05-30 04:05:15,161 INFO    SenderThread:74192 [dir_watcher.py:finish():402] scan save: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json wandb-summary.json
+2024-05-30 04:05:15,161 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 10
+2024-05-30 04:05:15,162 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:15,162 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 10
+2024-05-30 04:05:15,163 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:15,163 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 10
+2024-05-30 04:05:15,163 INFO    SenderThread:74192 [file_pusher.py:finish():169] shutting down file pusher
+2024-05-30 04:05:15,281 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-30 04:05:15,281 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: poll_exit
+2024-05-30 04:05:15,722 INFO    wandb-upload_0:74192 [upload_job.py:push():130] Uploaded file c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\config.yaml
+2024-05-30 04:05:16,039 INFO    wandb-upload_2:74192 [upload_job.py:push():130] Uploaded file c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\requirements.txt
+2024-05-30 04:05:16,096 INFO    wandb-upload_3:74192 [upload_job.py:push():130] Uploaded file c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\wandb-summary.json
+2024-05-30 04:05:16,290 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-30 04:05:16,290 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: poll_exit
+2024-05-30 04:05:16,635 INFO    wandb-upload_1:74192 [upload_job.py:push():130] Uploaded file c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\files\output.log
+2024-05-30 04:05:16,842 INFO    Thread-15 (_thread_body):74192 [sender.py:transition_state():613] send defer: 11
+2024-05-30 04:05:16,842 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:16,842 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 11
+2024-05-30 04:05:16,842 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:16,842 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 11
+2024-05-30 04:05:16,842 INFO    SenderThread:74192 [file_pusher.py:join():175] waiting for file pusher
+2024-05-30 04:05:16,842 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 12
+2024-05-30 04:05:16,842 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:16,842 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 12
+2024-05-30 04:05:16,843 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:16,843 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 12
+2024-05-30 04:05:16,843 INFO    SenderThread:74192 [file_stream.py:finish():601] file stream finish called
+2024-05-30 04:05:17,047 INFO    SenderThread:74192 [file_stream.py:finish():605] file stream finish is done
+2024-05-30 04:05:17,047 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 13
+2024-05-30 04:05:17,047 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:17,047 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 13
+2024-05-30 04:05:17,048 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:17,048 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 13
+2024-05-30 04:05:17,048 INFO    SenderThread:74192 [sender.py:transition_state():613] send defer: 14
+2024-05-30 04:05:17,048 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: defer
+2024-05-30 04:05:17,048 DEBUG   SenderThread:74192 [sender.py:send():378] send: final
+2024-05-30 04:05:17,048 INFO    HandlerThread:74192 [handler.py:handle_request_defer():184] handle defer: 14
+2024-05-30 04:05:17,048 DEBUG   SenderThread:74192 [sender.py:send():378] send: footer
+2024-05-30 04:05:17,048 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: defer
+2024-05-30 04:05:17,048 INFO    SenderThread:74192 [sender.py:send_request_defer():609] handle sender defer: 14
+2024-05-30 04:05:17,048 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: poll_exit
+2024-05-30 04:05:17,048 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: poll_exit
+2024-05-30 04:05:17,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: internal_messages
+2024-05-30 04:05:17,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: server_info
+2024-05-30 04:05:17,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: get_summary
+2024-05-30 04:05:17,049 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: sampled_history
+2024-05-30 04:05:17,049 DEBUG   SenderThread:74192 [sender.py:send_request():405] send_request: server_info
+2024-05-30 04:05:17,113 DEBUG   HandlerThread:74192 [handler.py:handle_request():158] handle_request: shutdown
+2024-05-30 04:05:17,113 INFO    HandlerThread:74192 [handler.py:finish():882] shutting down handler
+2024-05-30 04:05:18,054 INFO    WriterThread:74192 [datastore.py:close():296] close: c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_033924-ri1z5acl\run-ri1z5acl.wandb
+2024-05-30 04:05:18,115 INFO    SenderThread:74192 [sender.py:finish():1545] shutting down sender
+2024-05-30 04:05:18,115 INFO    SenderThread:74192 [file_pusher.py:finish():169] shutting down file pusher
+2024-05-30 04:05:18,115 INFO    SenderThread:74192 [file_pusher.py:join():175] waiting for file pusher

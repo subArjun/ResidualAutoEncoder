@@ -1,0 +1,18 @@
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 257, in wandb_sweep
+    model = ResidualAutoencoder(num_blocks=config.num_blocks,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 150, in __init__
+    self.ResidualDecoder = ResidualDecoder(num_blocks=num_blocks * asym_block, block_depth=block_depth * asym_depth, bottleneck_dim=bottleneck_dim, input_size=input_size, channels=channels)
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 118, in __init__
+    nn.Linear(bottleneck_dim, flattened_dim),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torch\nn\modules\linear.py", line 98, in __init__
+    self.weight = Parameter(torch.empty((out_features, in_features), **factory_kwargs))
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: empty() received an invalid combination of arguments - got (tuple, dtype=NoneType, device=NoneType), but expected one of:
+ * (tuple of ints size, *, tuple of names names, torch.memory_format memory_format, torch.dtype dtype, torch.layout layout, torch.device device, bool pin_memory, bool requires_grad)
+ * (tuple of ints size, *, torch.memory_format memory_format, Tensor out, torch.dtype dtype, torch.layout layout, torch.device device, bool pin_memory, bool requires_grad)

@@ -1,0 +1,41 @@
+2024-05-29 03:04:32,478 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-29 03:04:32,478 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Configure stats pid to 50428
+2024-05-29 03:04:32,478 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Loading settings from C:\Users\Arjun\.config\wandb\settings
+2024-05-29 03:04:32,478 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Loading settings from c:\Users\Arjun\ResidualAutoEncoder\wandb\settings
+2024-05-29 03:04:32,478 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'residual-autoencoder', 'entity': 'subarjun', 'root_dir': 'c:\\Users\\Arjun\\ResidualAutoEncoder', 'sweep_id': 'vy4lafqw', 'run_id': 'apynbwza', 'sweep_param_path': 'c:\\Users\\Arjun\\ResidualAutoEncoder\\wandb\\sweep-vy4lafqw\\config-apynbwza.yaml'}
+2024-05-29 03:04:32,487 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-29 03:04:32,487 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:_log_setup():520] Logging user logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240529_030432-apynbwza\logs\debug.log
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:_log_setup():521] Logging internal logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240529_030432-apynbwza\logs\debug-internal.log
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000023C4C7B7E90>
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():560] calling init triggers
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():567] wandb.init called with sweep_config: {'asym_block': 0, 'asym_depth': 0, 'block_depth': 2, 'bottleneck_dim': 128, 'l1_lambda': 1e-12, 'l1_lambda_bottleneck': 1e-06, 'lambda_kl': 1e-08, 'lambda_mse': 10, 'lambda_perceptual': 1e-05, 'lambda_psnr': 1e-09, 'lambda_ssim': 1e-05, 'lambda_tv': 1e-12, 'learning_rate': 0.0019207351633646092, 'num_blocks': 2}
+config: {}
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():610] starting backend
+2024-05-29 03:04:32,488 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():614] setting up manager
+2024-05-29 03:04:32,491 INFO    Thread-31 (_run_job):50428 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-05-29 03:04:32,491 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():622] backend started and connected
+2024-05-29 03:04:32,497 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_config_callback():1376] config_cb None None {'asym_block': 0, 'asym_depth': 0, 'block_depth': 2, 'bottleneck_dim': 128, 'l1_lambda': 1e-12, 'l1_lambda_bottleneck': 1e-06, 'lambda_kl': 1e-08, 'lambda_mse': 10, 'lambda_perceptual': 1e-05, 'lambda_psnr': 1e-09, 'lambda_ssim': 1e-05, 'lambda_tv': 1e-12, 'learning_rate': 0.0019207351633646092, 'num_blocks': 2}
+2024-05-29 03:04:32,498 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_label_probe_notebook():1328] probe notebook
+2024-05-29 03:04:32,498 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_label_probe_notebook():1338] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-05-29 03:04:32,498 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():711] updated telemetry
+2024-05-29 03:04:32,517 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-29 03:04:32,872 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_on_init():2396] communicating current version
+2024-05-29 03:04:33,239 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_on_init():2405] got version response 
+2024-05-29 03:04:33,239 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():795] starting run threads in backend
+2024-05-29 03:04:33,414 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_console_start():2374] atexit reg
+2024-05-29 03:04:33,414 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_redirect():2229] redirect: wrap_raw
+2024-05-29 03:04:33,414 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_redirect():2294] Wrapping output streams.
+2024-05-29 03:04:33,414 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_redirect():2319] Redirects installed.
+2024-05-29 03:04:33,414 INFO    Thread-31 (_run_job):50428 [wandb_init.py:init():838] run started, returning control to user process
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_finish():2103] finishing run subarjun/residual-autoencoder/apynbwza
+2024-05-29 03:04:34,443 ERROR   Thread-31 (_run_job):50428 [jupyter.py:save_history():437] Run pip install nbformat to save notebook history
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [wandb_init.py:_jupyter_teardown():448] cleaning up jupyter logic
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_atexit_cleanup():2343] got exitcode: 1
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_restore():2326] restore
+2024-05-29 03:04:34,443 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_restore():2332] restore done
+2024-05-29 03:04:39,147 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_footer_history_summary_info():3994] rendering history
+2024-05-29 03:04:39,147 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_footer_history_summary_info():4026] rendering summary
+2024-05-29 03:04:39,150 INFO    Thread-31 (_run_job):50428 [wandb_run.py:_footer_sync_info():3953] logging synced files

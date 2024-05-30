@@ -1,0 +1,35 @@
+Files already downloaded and verified
+Files already downloaded and verified
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 278, in wandb_sweep
+    logs = model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 199, in train_harness
+    loss, recon_loss = criterion(outputs, inputs, h)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 332, in __call__
+    lpips_loss = F.softplus(self.lpips(outputs, targets)) * self.lambda_perceptual
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torch\nn\modules\module.py", line 1532, in _wrapped_call_impl
+    return self._call_impl(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torch\nn\modules\module.py", line 1541, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchmetrics\metric.py", line 311, in forward
+    self._forward_cache = self._forward_reduce_state_update(*args, **kwargs)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchmetrics\metric.py", line 380, in _forward_reduce_state_update
+    self.update(*args, **kwargs)
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchmetrics\metric.py", line 482, in wrapped_func
+    update(*args, **kwargs)
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchmetrics\image\lpip.py", line 140, in update
+    loss, total = _lpips_update(img1, img2, net=self.net, normalize=self.normalize)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchmetrics\functional\image\lpips.py", line 385, in _lpips_update
+    raise ValueError(
+ValueError: Expected both input arguments to be normalized tensors with shape [N, 3, H, W]. Got input with shape torch.Size([16, 3, 128, 128]) and torch.Size([16, 3, 128, 128]) and values in range [tensor(nan, device='cuda:0', dtype=torch.float16, grad_fn=<MinBackward1>), tensor(nan, device='cuda:0', dtype=torch.float16, grad_fn=<MaxBackward1>)] and [tensor(-0.9996, device='cuda:0'), tensor(1., device='cuda:0')] when all values are expected to be in the [-1, 1] range.

@@ -1,0 +1,31 @@
+Files already downloaded and verified
+Files already downloaded and verified
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Epoch [1/25], Loss: 7.6787, recon_loss: 0.1169, val_loss: 5068.6779 learning rate: 0.000237
+Epoch [2/25], Loss: 7.4326, recon_loss: 0.0778, val_loss: 4732.2955 learning rate: 0.000237
+Epoch [3/25], Loss: 7.4093, recon_loss: 0.1017, val_loss: 4447.8350 learning rate: 0.000237
+Epoch [4/25], Loss: 7.3933, recon_loss: 0.0822, val_loss: 4406.3495 learning rate: 0.000237
+Epoch [5/25], Loss: 7.3707, recon_loss: 0.0694, val_loss: 4143.5248 learning rate: 0.000237
+Epoch [6/25], Loss: 7.3570, recon_loss: 0.0936, val_loss: 3983.2001 learning rate: 0.000237
+Epoch [7/25], Loss: 7.3243, recon_loss: 0.0740, val_loss: 3711.4031 learning rate: 0.000237
+Epoch [8/25], Loss: 7.3148, recon_loss: 0.0667, val_loss: 3673.4513 learning rate: 0.000237
+Epoch [9/25], Loss: 7.3118, recon_loss: 0.0623, val_loss: 3649.4310 learning rate: 0.000237
+Epoch [10/25], Loss: 7.3096, recon_loss: 0.0753, val_loss: 3633.1479 learning rate: 0.000237
+Epoch [11/25], Loss: 7.3078, recon_loss: 0.0690, val_loss: 3612.5016 learning rate: 0.000237
+Epoch [12/25], Loss: 7.2956, recon_loss: 0.0739, val_loss: 3485.4862 learning rate: 0.000237
+Epoch [13/25], Loss: 7.2904, recon_loss: 0.0589, val_loss: 3498.8248 learning rate: 0.000237
+Epoch [14/25], Loss: 7.2903, recon_loss: 0.0812, val_loss: 3419.7598 learning rate: 0.000237
+Epoch [15/25], Loss: 7.2865, recon_loss: 0.0698, val_loss: 3429.5998 learning rate: 0.000237
+Epoch [16/25], Loss: 7.2854, recon_loss: 0.0651, val_loss: 3404.3851 learning rate: 0.000237
+Epoch [17/25], Loss: 7.2842, recon_loss: 0.0734, val_loss: 3389.8260 learning rate: 0.000237
+Epoch [18/25], Loss: 7.2794, recon_loss: 0.0597, val_loss: 3220.4646 learning rate: 0.000237
+Epoch [19/25], Loss: 7.2599, recon_loss: 0.0768, val_loss: 3128.2846 learning rate: 0.000237
+Epoch [20/25], Loss: 7.2565, recon_loss: 0.0556, val_loss: 3164.2756 learning rate: 0.000237
+Epoch [21/25], Loss: 7.2571, recon_loss: 0.0745, val_loss: 3135.7422 learning rate: 0.000237
+Epoch [22/25], Loss: 7.2529, recon_loss: 0.0590, val_loss: 3083.5071 learning rate: 0.000237
+Epoch [23/25], Loss: 7.2512, recon_loss: 0.0763, val_loss: 3079.5790 learning rate: 0.000237
+Epoch [24/25], Loss: 7.2523, recon_loss: 0.0521, val_loss: 3062.7641 learning rate: 0.000237
+Epoch [25/25], Loss: 7.2502, recon_loss: 0.0548, val_loss: 3081.4518 learning rate: 0.000237

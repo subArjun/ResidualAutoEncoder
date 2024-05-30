@@ -1,0 +1,31 @@
+2024-05-30 11:47:36,152 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-30 11:47:36,152 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Configure stats pid to 41092
+2024-05-30 11:47:36,152 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Loading settings from C:\Users\Arjun\.config\wandb\settings
+2024-05-30 11:47:36,152 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Loading settings from c:\Users\Arjun\ResidualAutoEncoder\wandb\settings
+2024-05-30 11:47:36,152 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'residual-autoencoder', 'entity': 'subarjun', 'root_dir': 'c:\\Users\\Arjun\\ResidualAutoEncoder', 'sweep_id': '5mduxr2b', 'run_id': 'jgnyr7kl', 'sweep_param_path': 'c:\\Users\\Arjun\\ResidualAutoEncoder\\wandb\\sweep-5mduxr2b\\config-jgnyr7kl.yaml'}
+2024-05-30 11:47:36,161 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-30 11:47:36,161 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-05-30 11:47:36,161 INFO    Thread-11 (_run_job):41092 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:_log_setup():520] Logging user logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_114736-jgnyr7kl\logs\debug.log
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:_log_setup():521] Logging internal logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_114736-jgnyr7kl\logs\debug-internal.log
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000027CCC133E50>
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():560] calling init triggers
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():567] wandb.init called with sweep_config: {'asym_block': 1, 'asym_depth': 1, 'block_depth': 3, 'bottleneck_dim': 128, 'dropout': 0, 'l1_lambda': 5.0285e-11, 'l1_lambda_bottleneck': 0, 'lambda_kl': 2.1102e-06, 'lambda_mse': 20, 'lambda_perceptual': 0.43879, 'lambda_psnr': 7.308e-18, 'lambda_ssim': 4e-06, 'lambda_tv': 4.534299999999999e-20, 'learning_rate': 1.198e-05, 'num_blocks': 2}
+config: {}
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():610] starting backend
+2024-05-30 11:47:36,162 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():614] setting up manager
+2024-05-30 11:47:36,165 INFO    Thread-11 (_run_job):41092 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-05-30 11:47:36,166 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():622] backend started and connected
+2024-05-30 11:47:36,171 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_config_callback():1376] config_cb None None {'asym_block': 1, 'asym_depth': 1, 'block_depth': 3, 'bottleneck_dim': 128, 'dropout': 0, 'l1_lambda': 5.0285e-11, 'l1_lambda_bottleneck': 0, 'lambda_kl': 2.1102e-06, 'lambda_mse': 20, 'lambda_perceptual': 0.43879, 'lambda_psnr': 7.308e-18, 'lambda_ssim': 4e-06, 'lambda_tv': 4.534299999999999e-20, 'learning_rate': 1.198e-05, 'num_blocks': 2}
+2024-05-30 11:47:36,171 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_label_probe_notebook():1328] probe notebook
+2024-05-30 11:47:36,171 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_label_probe_notebook():1338] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-05-30 11:47:36,172 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():711] updated telemetry
+2024-05-30 11:47:36,191 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-30 11:47:36,563 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_on_init():2396] communicating current version
+2024-05-30 11:47:36,929 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_on_init():2405] got version response 
+2024-05-30 11:47:36,929 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():795] starting run threads in backend
+2024-05-30 11:47:37,094 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_console_start():2374] atexit reg
+2024-05-30 11:47:37,094 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_redirect():2229] redirect: wrap_raw
+2024-05-30 11:47:37,094 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_redirect():2294] Wrapping output streams.
+2024-05-30 11:47:37,095 INFO    Thread-11 (_run_job):41092 [wandb_run.py:_redirect():2319] Redirects installed.
+2024-05-30 11:47:37,096 INFO    Thread-11 (_run_job):41092 [wandb_init.py:init():838] run started, returning control to user process

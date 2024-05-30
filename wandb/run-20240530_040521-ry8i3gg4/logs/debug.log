@@ -1,0 +1,41 @@
+2024-05-30 04:05:21,118 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Current SDK version is 0.17.0
+2024-05-30 04:05:21,118 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Configure stats pid to 37716
+2024-05-30 04:05:21,118 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Loading settings from C:\Users\Arjun\.config\wandb\settings
+2024-05-30 04:05:21,118 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Loading settings from c:\Users\Arjun\ResidualAutoEncoder\wandb\settings
+2024-05-30 04:05:21,118 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'residual-autoencoder', 'entity': 'subarjun', 'root_dir': 'c:\\Users\\Arjun\\ResidualAutoEncoder', 'run_id': 'ry8i3gg4', 'sweep_param_path': 'c:\\Users\\Arjun\\ResidualAutoEncoder\\wandb\\sweep-b9sr0msg\\config-ry8i3gg4.yaml', 'sweep_id': 'b9sr0msg'}
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program': '<python with no main file>'}
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:_log_setup():520] Logging user logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_040521-ry8i3gg4\logs\debug.log
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:_log_setup():521] Logging internal logs to c:\Users\Arjun\ResidualAutoEncoder\wandb\run-20240530_040521-ry8i3gg4\logs\debug-internal.log
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:_jupyter_setup():466] configuring jupyter hooks <wandb.sdk.wandb_init._WandbInit object at 0x0000022E98C4CBD0>
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():560] calling init triggers
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():567] wandb.init called with sweep_config: {'asym_block': 1, 'asym_depth': 1, 'block_depth': 2, 'bottleneck_dim': 128, 'dropout': 0.4, 'l1_lambda': 3.9600000000000003e-13, 'l1_lambda_bottleneck': 1.1e-09, 'lambda_kl': 3.71187e-05, 'lambda_mse': 40, 'lambda_perceptual': 0.00026399999999999997, 'lambda_psnr': 7.47e-17, 'lambda_ssim': 0.000274, 'lambda_tv': 2.5019186898e-09, 'learning_rate': 4e-06, 'num_blocks': 3}
+config: {}
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():610] starting backend
+2024-05-30 04:05:21,124 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():614] setting up manager
+2024-05-30 04:05:21,127 INFO    Thread-329 (_run_job):37716 [backend.py:_multiprocessing_setup():105] multiprocessing start_methods=spawn, using: spawn
+2024-05-30 04:05:21,127 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():622] backend started and connected
+2024-05-30 04:05:21,133 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_config_callback():1376] config_cb None None {'asym_block': 1, 'asym_depth': 1, 'block_depth': 2, 'bottleneck_dim': 128, 'dropout': 0.4, 'l1_lambda': 3.9600000000000003e-13, 'l1_lambda_bottleneck': 1.1e-09, 'lambda_kl': 3.71187e-05, 'lambda_mse': 40, 'lambda_perceptual': 0.00026399999999999997, 'lambda_psnr': 7.47e-17, 'lambda_ssim': 0.000274, 'lambda_tv': 2.5019186898e-09, 'learning_rate': 4e-06, 'num_blocks': 3}
+2024-05-30 04:05:21,133 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_label_probe_notebook():1328] probe notebook
+2024-05-30 04:05:21,133 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_label_probe_notebook():1338] Unable to probe notebook: 'NoneType' object has no attribute 'get'
+2024-05-30 04:05:21,133 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():711] updated telemetry
+2024-05-30 04:05:21,150 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():744] communicating run to backend with 90.0 second timeout
+2024-05-30 04:05:21,497 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_on_init():2396] communicating current version
+2024-05-30 04:05:21,861 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_on_init():2405] got version response 
+2024-05-30 04:05:21,861 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():795] starting run threads in backend
+2024-05-30 04:05:22,041 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_console_start():2374] atexit reg
+2024-05-30 04:05:22,041 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_redirect():2229] redirect: wrap_raw
+2024-05-30 04:05:22,041 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_redirect():2294] Wrapping output streams.
+2024-05-30 04:05:22,041 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_redirect():2319] Redirects installed.
+2024-05-30 04:05:22,041 INFO    Thread-329 (_run_job):37716 [wandb_init.py:init():838] run started, returning control to user process
+2024-05-30 04:29:54,402 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_finish():2103] finishing run subarjun/residual-autoencoder/ry8i3gg4
+2024-05-30 04:29:54,403 ERROR   Thread-329 (_run_job):37716 [jupyter.py:save_history():437] Run pip install nbformat to save notebook history
+2024-05-30 04:29:54,403 INFO    Thread-329 (_run_job):37716 [jupyter.py:save_ipynb():373] not saving jupyter notebook
+2024-05-30 04:29:54,403 INFO    Thread-329 (_run_job):37716 [wandb_init.py:_jupyter_teardown():448] cleaning up jupyter logic
+2024-05-30 04:29:54,403 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_atexit_cleanup():2343] got exitcode: 0
+2024-05-30 04:29:54,403 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_restore():2326] restore
+2024-05-30 04:29:54,403 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_restore():2332] restore done
+2024-05-30 04:29:58,524 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_footer_history_summary_info():3994] rendering history
+2024-05-30 04:29:58,524 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_footer_history_summary_info():4026] rendering summary
+2024-05-30 04:29:58,527 INFO    Thread-329 (_run_job):37716 [wandb_run.py:_footer_sync_info():3953] logging synced files

@@ -1,0 +1,1 @@
+{"Epoch": 1, "Loss": 15.303225671081544, "Reconstruction Loss": 0.137798013869524, "val_loss": 3590.745890859375, "Learning Rate": 4.1e-05, "parameters": 35434307, "num_params": 35434307, "_timestamp": 1717045216.3240156, "_runtime": 88.68339252471924, "_step": 0, "_wandb": {"runtime": 87}}

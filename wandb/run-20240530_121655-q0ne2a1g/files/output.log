@@ -1,0 +1,19 @@
+Files already downloaded and verified
+Files already downloaded and verified
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torch\autograd\graph.py:744: UserWarning: Plan failed with a cudnnException: CUDNN_BACKEND_EXECUTION_PLAN_DESCRIPTOR: cudnnFinalize Descriptor Failed cudnn_status: CUDNN_STATUS_NOT_SUPPORTED (Triggered internally at C:\cb\pytorch_1000000000000\work\aten\src\ATen\native\cudnn\Conv_v8.cpp:919.)
+  return Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+Epoch [1/25], Loss: 42.1651, recon_loss: 0.1066, val_loss: 0.0074 learning rate: 1.425e-05
+Epoch [2/25], Loss: 38.3719, recon_loss: 0.0737, val_loss: 0.0045 learning rate: 1.425e-05
+Epoch [3/25], Loss: 37.9385, recon_loss: 0.0850, val_loss: 0.0041 learning rate: 1.425e-05
+Epoch [4/25], Loss: 37.8526, recon_loss: 0.0591, val_loss: 0.0040 learning rate: 1.425e-05
+Epoch [5/25], Loss: 37.8584, recon_loss: 0.0633, val_loss: 0.0039 learning rate: 1.425e-05
+Epoch [6/25], Loss: 37.7203, recon_loss: 0.0629, val_loss: 0.0039 learning rate: 1.425e-05
+Epoch [7/25], Loss: 37.7002, recon_loss: 0.0590, val_loss: 0.0038 learning rate: 1.425e-05
+Epoch [8/25], Loss: 37.7701, recon_loss: 0.0500, val_loss: 0.0038 learning rate: 1.425e-05
+Epoch [9/25], Loss: 37.6908, recon_loss: 0.0710, val_loss: 0.0038 learning rate: 1.425e-05
+Epoch [10/25], Loss: 37.7653, recon_loss: 0.0596, val_loss: 0.0038 learning rate: 1.425e-05
+Epoch [11/25], Loss: 37.7109, recon_loss: 0.0600, val_loss: 0.0038 learning rate: 1.425e-05

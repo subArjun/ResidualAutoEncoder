@@ -1,0 +1,33 @@
+Files already downloaded and verified
+Files already downloaded and verified
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\torchvision\models\_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=VGG16_Weights.IMAGENET1K_V1`. You can also use `weights=VGG16_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Epoch [1/25], Loss: 7.5232, recon_loss: 0.0848, val_loss: 4049.8207 learning rate: 0.000547
+Epoch [2/25], Loss: 7.3433, recon_loss: 0.0988, val_loss: 3896.5983 learning rate: 0.000547
+Epoch [3/25], Loss: 7.3377, recon_loss: 0.0758, val_loss: 3880.4309 learning rate: 0.000547
+Epoch [4/25], Loss: 7.3325, recon_loss: 0.0823, val_loss: 3827.3752 learning rate: 0.000547
+Epoch [5/25], Loss: 7.3278, recon_loss: 0.0795, val_loss: 3782.1142 learning rate: 0.000547
+Epoch [6/25], Loss: 7.3145, recon_loss: 0.0791, val_loss: 3614.9187 learning rate: 0.000547
+Epoch [7/25], Loss: 7.3009, recon_loss: 0.0852, val_loss: 3608.7537 learning rate: 0.000547
+Epoch [8/25], Loss: 7.2988, recon_loss: 0.0803, val_loss: 3509.3397 learning rate: 0.000547
+Epoch [9/25], Loss: 7.2955, recon_loss: 0.0627, val_loss: 3498.6552 learning rate: 0.000547
+Epoch [10/25], Loss: 7.2945, recon_loss: 0.0812, val_loss: 3511.8735 learning rate: 0.000547
+Epoch [11/25], Loss: 7.2945, recon_loss: 0.0705, val_loss: 3478.4803 learning rate: 0.000547
+Epoch [12/25], Loss: 7.2934, recon_loss: 0.0756, val_loss: 3487.9985 learning rate: 0.000547
+Epoch [13/25], Loss: 7.2902, recon_loss: 0.0813, val_loss: 3446.8961 learning rate: 0.000547
+Epoch [14/25], Loss: 7.2895, recon_loss: 0.0751, val_loss: 3442.5724 learning rate: 0.000547
+Epoch [15/25], Loss: 7.2886, recon_loss: 0.0701, val_loss: 3424.1499 learning rate: 0.000547
+Epoch [16/25], Loss: 7.2887, recon_loss: 0.0695, val_loss: 3464.2156 learning rate: 0.000547
+Epoch [17/25], Loss: 7.2884, recon_loss: 0.0664, val_loss: 3416.9438 learning rate: 0.000547
+Traceback (most recent call last):
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 279, in wandb_sweep
+    model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25)
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 214, in train_harness
+    _,_, val_loss = model.evaluate_harness(model, train_loader, device)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 225, in evaluate_harness
+    inputs = inputs.to(device)
+             ^^^^^^^^^^^^^^^^^
+Exception

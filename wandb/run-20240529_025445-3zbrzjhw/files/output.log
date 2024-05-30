@@ -1,0 +1,18 @@
+Files already downloaded and verified
+Files already downloaded and verified
+Traceback (most recent call last):
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\wandb\sdk\wandb_config.py", line 162, in __getattr__
+    return self.__getitem__(key)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\wandb\sdk\wandb_config.py", line 130, in __getitem__
+    return self._items[key]
+           ~~~~~~~~~~~^^^^^
+KeyError: 'asym_block'
+The above exception was the direct cause of the following exception:
+Traceback (most recent call last):
+  File "c:\Users\Arjun\ResidualAutoEncoder\ResidualAutoEncoder.py", line 262, in wandb_sweep
+    asym_block=config.asym_block,
+              ^^^^^^^^^^^^^^^^^
+  File "c:\Users\Arjun\anaconda3\envs\PyTorch\Lib\site-packages\wandb\sdk\wandb_config.py", line 164, in __getattr__
+    raise AttributeError(
+AttributeError: <class 'wandb.sdk.wandb_config.Config'> object has no attribute 'asym_block'

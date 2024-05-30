@@ -1,0 +1,24 @@
+wandb_version: 1
+
+asym_block:
+  value: 1
+asym_depth:
+  value: 1
+block_depth:
+  value: 2
+bottleneck_dim:
+  value: 64
+dropout:
+  value: 0.2
+lambda_kl:
+  value: 3.108e-07
+lambda_mse:
+  value: 50
+lambda_perceptual:
+  value: 7.29063
+lambda_ssim:
+  value: 1.2e-05
+learning_rate:
+  value: 1.425e-05
+num_blocks:
+  value: 3
