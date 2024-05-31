@@ -178,7 +178,7 @@ class ResidualAutoencoder(nn.Module):
             if m.bias is not None:
                 nn.init.constant_(m.bias, 0)  # Initialize biases with zero
         
-    def train_harness(self, model, train_loader, test_loader, criterion, optimizer, epochs=10):
+    def train_harness(self, model, train_loader, test_loader, criterion, optimizer, epochs=10, wandb_log=False):
         device = model.device
         model.train()
         scaler = GradScaler()
@@ -209,7 +209,8 @@ class ResidualAutoencoder(nn.Module):
             scheduler.step(val_loss)  # Step scheduler
             print(f"Epoch [{epoch + 1}/{epochs}], Loss: {train_loss:.4f}, recon_loss: {recon_loss:.4f}, val_loss: {val_loss:.4f} learning rate: {scheduler.get_last_lr()[0]}")
             torch.cuda.empty_cache()
-            wandb.log({'Epoch': epoch+1, 'Loss': train_loss, 'Reconstruction Loss': reconstruction_loss, 'val_loss': val_loss, 'Learning Rate': scheduler.get_last_lr()[0], 'parameters': count_parameters(model)})
+            if wandb_log:
+                wandb.log({'Epoch': epoch+1, 'Loss': train_loss, 'Reconstruction Loss': reconstruction_loss, 'val_loss': val_loss, 'Learning Rate': scheduler.get_last_lr()[0], 'parameters': count_parameters(model)})
             
     def evaluate_harness(self, model, test_loader, device):
         model.eval()
@@ -264,7 +265,7 @@ def wandb_sweep(config=None):
                             )
         optimizer = optim.Adam(model.parameters(), lr=config.learning_rate)
         
-        model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25)
+        model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25, wandb_log=True)
         
 class Criterion():
     def __init__(self, model, l1_lambda=1e-11, l1_lambda_bottleneck=1e-5, lambda_kl=1e-11, lambda_tv=1e-12, lambda_perceptual=1e-5, lambda_mse=10.0, lambda_ssim=1e-7, lambda_psnr=1e-11):
