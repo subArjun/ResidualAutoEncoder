@@ -7,6 +7,9 @@ import matplotlib.pyplot as plt
 import torchmetrics as metrics
 from torch.cuda.amp import autocast, GradScaler
 import torch.nn.functional as F
+import torch.nn.utils.prune as prune
+from torch.quantization import fuse_modules, quantize_dynamic
+import torch.onnx
 import wandb
 
 # Residual Encoder Block
@@ -177,7 +180,59 @@ class ResidualAutoencoder(nn.Module):
             nn.init.kaiming_normal_(m.weight)  # Initialize weights with Kaiming normal
             if m.bias is not None:
                 nn.init.constant_(m.bias, 0)  # Initialize biases with zero
+
+    def prune_model(self, amount=0.4):
+        model = self.cpu()
+        for module in model.modules():
+            if isinstance(module, nn.Linear) or isinstance(module, nn.Conv2d):
+                prune.l1_unstructured(module, name='weight', amount=amount)
+                prune.remove(module, 'weight')
+        return model
+
+    def fuse_model(self, model):
+        for module_name, module in model.named_children():
+            if isinstance(module, nn.Sequential):
+                for block_name, block in module.named_children():
+                    if isinstance(block, ResidualEncoderBlock) or isinstance(block, ResidualDecoderBlock):
+                        if self.block_depth == 2:
+                            fuse_modules(block.block, [['0', '1', '2'], ['4', '5']], inplace=True)
+                        else:
+                            fuse_modules(block.block, [['0', '1', '2'], ['3', '4'], ['6', '7']], inplace=True)
+        return model    
+
+    def quantize_model(self, model):
+        self.eval()
+        quantized_model = quantize_dynamic(model, {nn.Linear, nn.Conv2d}, dtype=torch.qint8,)
+        return quantized_model
+
+    def script_model(self, model):
+        return torch.jit.script(model)
+    
+    def convert_to_onnx(self, model, path='model.onnx'):
+        dummy_input = torch.randn(1, 3, 128, 128)
+        torch.onnx.export(model, dummy_input, path, verbose=True, input_names=['input'], output_names=['output'])
+
+    def optimize_for_inference(self, path=None, type='lite', pruning_amount=0.4, save=False):
+        if type == 'lite':
+            pruned_model = self.prune_model(pruning_amount)
+            fused_model = self.fuse_model(pruned_model)
+            quantized_model = self.quantize_model(fused_model)
+            script_model = self.script_model(quantized_model)
+            if save:
+                torch.jit.save(script_model, path)
+            return script_model
+        elif type == 'micro':
+            pruned_model = self.prune_model(pruning_amount)
+            quantized_model = self.quantize_model(pruned_model)
+            if save:
+                self.convert_to_onnx(quantized_model, path)
+            return quantized_model
         
+    def load_for_optimized_inference(self, path):
+        model = torch.jit.load(path)
+        model.eval()
+        return model
+
     def train_harness(self, model, train_loader, test_loader, criterion, optimizer, epochs=10, wandb_log=False):
         device = model.device
         model.train()
