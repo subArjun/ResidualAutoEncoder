@@ -238,9 +238,9 @@ def wandb_sweep(config=None):
         
         # Data transformation and loading
         transform = transforms.Compose([
+            transforms.Resize((128, 128)),
             transforms.ToTensor(),
-            transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5)),
-            transforms.Resize((128, 128))
+            transforms.Normalize((0.5,0.5,0.5), (0.5,0.5,0.5))
         ])
         train_dataset = datasets.CIFAR10(root='./data', train=True, download=True, transform=transform)
         test_dataset = datasets.CIFAR10(root='./data', train=False, download=True, transform=transform)
