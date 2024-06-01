@@ -11,6 +11,7 @@ import torch.nn.utils.prune as prune
 from torch.quantization import fuse_modules, quantize_dynamic
 import torch.onnx
 import wandb
+import numpy as np
 
 # Residual Encoder Block
 class ResidualEncoderBlock(nn.Module):
@@ -32,6 +33,8 @@ class ResidualEncoderBlock(nn.Module):
         self.projection = None
         if in_channels != out_channels or stride != 1:
             self.projection = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=0)
+            
+        self.relu = nn.ReLU(inplace=True)
         
     def forward(self, x):
         identity = x  # Save the input for residual connection
@@ -39,7 +42,7 @@ class ResidualEncoderBlock(nn.Module):
         if self.projection is not None:
             identity = self.projection(identity)  # Adjust dimensions if necessary
         out += identity  # Add the residual
-        out = nn.ReLU(inplace=True)(out)  # Apply activation
+        out = self.relu(out)  # Apply activation
         return out
 
 # Residual Decoder Block
@@ -63,6 +66,8 @@ class ResidualDecoderBlock(nn.Module):
         self.projection = None
         if in_channels != out_channels or stride != 1:
             self.projection = nn.ConvTranspose2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=0, output_padding=1)
+            
+        self.relu = nn.ReLU(inplace=True)
         
     def forward(self, x):
         identity = x  # Save the input for residual connection
@@ -70,7 +75,7 @@ class ResidualDecoderBlock(nn.Module):
         if self.projection is not None:
             identity = self.projection(identity)  # Adjust dimensions if necessary
         out += identity  # Add the residual
-        out = nn.ReLU(inplace=True)(out)  # Apply activation
+        out = self.relu(out)  # Apply activation
         return out
     
 # Residual Encoder
@@ -131,11 +136,14 @@ class ResidualDecoder(nn.Module):
         
         self.decoder = nn.Sequential(*decoder_layers)
         self.final_conv = nn.Conv2d(in_channels, channels, kernel_size=1)
+        
+        self.tanh = nn.Tanh()
 
     def forward(self, x):
         x = self.bottleneck_decoder(x)  # Pass through bottleneck layer
         x = self.decoder(x)  # Pass through decoder blocks
-        x = F.tanh(self.final_conv(x))  # Apply final convolution and tanh activation
+        x = self.final_conv(x)  # Apply final convolution and tanh activation
+        x = self.tanh(x)
         return x
 
 # Residual Autoencoder
@@ -201,26 +209,28 @@ class ResidualAutoencoder(nn.Module):
         return model    
 
     def quantize_model(self, model):
-        self.eval()
+        model.eval()
         quantized_model = quantize_dynamic(model, {nn.Linear, nn.Conv2d}, dtype=torch.qint8,)
         return quantized_model
 
     def script_model(self, model):
+        model.eval()
         return torch.jit.script(model)
     
     def convert_to_onnx(self, model, path='model.onnx'):
         dummy_input = torch.randn(1, 3, 128, 128)
         torch.onnx.export(model, dummy_input, path, verbose=True, input_names=['input'], output_names=['output'])
 
-    def optimize_for_inference(self, path=None, type='lite', pruning_amount=0.4, save=False):
+    def optimize_for_inference(self, path='models/model.pt', type='lite', pruning_amount=0.4, save=False):
         if type == 'lite':
             pruned_model = self.prune_model(pruning_amount)
             fused_model = self.fuse_model(pruned_model)
             quantized_model = self.quantize_model(fused_model)
             script_model = self.script_model(quantized_model)
+            frozen_model = torch.jit.optimize_for_inference(script_model)
             if save:
-                torch.jit.save(script_model, path)
-            return script_model
+                torch.jit.save(frozen_model, path)
+            return frozen_model
         elif type == 'micro':
             pruned_model = self.prune_model(pruning_amount)
             quantized_model = self.quantize_model(pruned_model)
@@ -268,6 +278,7 @@ class ResidualAutoencoder(nn.Module):
                 wandb.log({'Epoch': epoch+1, 'Loss': train_loss, 'Reconstruction Loss': reconstruction_loss, 'val_loss': val_loss, 'Learning Rate': scheduler.get_last_lr()[0], 'parameters': count_parameters(model)})
             
     def evaluate_harness(self, model, test_loader, device):
+        model.to(device)
         model.eval()
         total_loss = 0.0
         with torch.no_grad():
@@ -323,38 +334,67 @@ def wandb_sweep(config=None):
         model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25, wandb_log=True)
         
 class Criterion():
-    def __init__(self, model, l1_lambda=1e-11, l1_lambda_bottleneck=1e-5, lambda_kl=1e-11, lambda_tv=1e-12, lambda_perceptual=1e-5, lambda_mse=10.0, lambda_ssim=1e-7, lambda_psnr=1e-11):
+    def __init__(self, model, lambda_kl=1e-6,lambda_perceptual=1e-4, lambda_mse=30.0, lambda_ssim=1e-1, greedy=False):
         self.model = model
-        self.l1_lambda = l1_lambda
+        self.greedy = greedy
         self.lambda_kl = lambda_kl
-        self.l1_lambda_bottleneck = l1_lambda_bottleneck
-        self.lambda_tv = lambda_tv
         self.lambda_perceptual = lambda_perceptual
         self.lambda_mse = lambda_mse
         self.lambda_ssim = lambda_ssim
-        self.lambda_psnr = lambda_psnr
         
         self.reconstruction_loss = nn.MSELoss()
         self.ssim_metric = metrics.image.StructuralSimilarityIndexMeasure().to(self.model.device)
         self.kl_divergence = nn.KLDivLoss(reduction='batchmean')
         self.lpips = metrics.image.lpip.LearnedPerceptualImagePatchSimilarity(net_type='vgg').to(self.model.device)
+        self.lpips_flag = False
         
     def __call__(self, outputs, targets, h):
-        recon_loss = self.reconstruction_loss(outputs, targets)
-        loss = F.softplus(recon_loss) * self.lambda_mse
+        if self.greedy:
+            recon_loss = self.reconstruction_loss(outputs, targets)
+            loss = F.softplus(recon_loss) * self.lambda_mse
+            
+            sparse_loss = F.softplus(self.kl_divergence(h, torch.zeros_like(h))) * self.lambda_kl 
+            loss += sparse_loss
+            
+            return loss, recon_loss
         
-        sparse_loss = F.softplus(self.kl_divergence(h, torch.zeros_like(h))) * self.lambda_kl
-        loss += sparse_loss
+        else:    
+            recon_loss = self.reconstruction_loss(outputs, targets)
+            loss = F.softplus(recon_loss) * self.lambda_mse
+            
+            sparse_loss = F.softplus(self.kl_divergence(h, torch.zeros_like(h))) * self.lambda_kl
+            loss += sparse_loss
 
-        if torch.rand(1).item() < 0.2:
-            lpips_loss = F.softplus(self.lpips(outputs, targets)) * self.lambda_perceptual
-            loss += lpips_loss
-            
-        if torch.rand(1).item() < 0.5:
-            ssim_loss = F.softplus((1 - self.ssim_metric(outputs, targets))) * self.lambda_ssim
-            loss += ssim_loss
-            
-        return loss, recon_loss
-    
+            if torch.rand(1).item() < 0.5:
+                lpips_loss = F.softplus(self.lpips(outputs, targets)) * self.lambda_perceptual
+                loss += lpips_loss
+                self.lpips_flag = True
+                
+            if not self.lpips_flag:
+                ssim_loss = F.softplus((1 - self.ssim_metric(outputs, targets))) * self.lambda_ssim
+                loss += ssim_loss
+            self.lpips_flag = False
+                
+            return loss, recon_loss
+        
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
+
+
+# De-normalize function for visualization
+def denormalize(tensor, mean=(0.5, 0.5, 0.5), std=(0.5, 0.5, 0.5)):
+    tensor = tensor.clone()
+    for t, m, s in zip(tensor, mean, std):
+        t.mul_(s).add_(m)
+    return tensor
+
+def visualize_images(tensor, title="Images"):
+    tensor = denormalize(tensor)
+    tensor = tensor.detach().cpu().numpy()
+    tensor = np.transpose(tensor, (0, 2, 3, 1))
+    fig, axes = plt.subplots(1, len(tensor), figsize=(15, 15))
+    for i, img in enumerate(tensor):
+        axes[i].imshow(img)
+        axes[i].axis('off')
+    plt.suptitle(title)
+    plt.show()

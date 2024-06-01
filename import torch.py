@@ -83,9 +83,9 @@ def evaluate(model, test_loader, device):
     with torch.no_grad():
         for data in test_loader:
             inputs, _ = data
-            inputs += 0.6 * torch.randn_like(inputs)  # Add noise to the inputs
-            # for input in inputs:
-                #input[ :, :, :input.size(2)//2] = 0.0
+            #inputs += 0.6 * torch.randn_like(inputs)  # Add noise to the inputs
+            for input in inputs:
+                input[ :, :, :input.size(2)//2] = 0.0
             inputs = inputs.view(inputs.size(0), -1).to(device)
             outputs = model(inputs)
             return inputs, outputs
