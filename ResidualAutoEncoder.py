@@ -25,7 +25,7 @@ class ResidualEncoderBlock(nn.Module):
             layers.append(nn.BatchNorm2d(out_channels))
             layers.append(nn.ReLU(inplace=True))
             layers.append(nn.Dropout(dropout))
-        layers.append(nn.Conv2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, padding=1))
+        layers.append(nn.Conv2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, padding=1, stride=1 if num_layers > 1 else 2))
         layers.append(nn.BatchNorm2d(out_channels))
         self.block = nn.Sequential(*layers)
         
@@ -34,7 +34,7 @@ class ResidualEncoderBlock(nn.Module):
         if in_channels != out_channels or stride != 1:
             self.projection = nn.Conv2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=0)
             
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         
     def forward(self, x):
         identity = x  # Save the input for residual connection
@@ -58,7 +58,7 @@ class ResidualDecoderBlock(nn.Module):
             layers.append(nn.BatchNorm2d(out_channels))
             layers.append(nn.ReLU(inplace=True))
             layers.append(nn.Dropout(dropout))
-        layers.append(nn.ConvTranspose2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, stride=1, padding=1))
+        layers.append(nn.ConvTranspose2d(in_channels if num_layers == 1 else out_channels, out_channels, kernel_size, stride=1 if num_layers > 1 else 2, padding=1, output_padding=1 if num_layers == 1 else 0))
         layers.append(nn.BatchNorm2d(out_channels))
         self.block = nn.Sequential(*layers)
         
@@ -67,7 +67,7 @@ class ResidualDecoderBlock(nn.Module):
         if in_channels != out_channels or stride != 1:
             self.projection = nn.ConvTranspose2d(in_channels, out_channels, kernel_size=1, stride=stride, padding=0, output_padding=1)
             
-        self.relu = nn.ReLU(inplace=True)
+        self.relu = nn.ReLU()
         
     def forward(self, x):
         identity = x  # Save the input for residual connection
@@ -137,13 +137,13 @@ class ResidualDecoder(nn.Module):
         self.decoder = nn.Sequential(*decoder_layers)
         self.final_conv = nn.Conv2d(in_channels, channels, kernel_size=1)
         
-        self.tanh = nn.Tanh()
+        self.relu = nn.ReLU()
 
     def forward(self, x):
         x = self.bottleneck_decoder(x)  # Pass through bottleneck layer
         x = self.decoder(x)  # Pass through decoder blocks
         x = self.final_conv(x)  # Apply final convolution and tanh activation
-        x = self.tanh(x)
+        x = self.relu(x)
         return x
 
 # Residual Autoencoder
@@ -332,14 +332,26 @@ def wandb_sweep(config=None):
         optimizer = optim.Adam(model.parameters(), lr=config.learning_rate)
         
         model.train_harness(model, train_loader, test_loader, criterion, optimizer, epochs=25, wandb_log=True)
-        
+
+#Custom autoencoder criterion class        
 class Criterion():
-    def __init__(self, model, lambda_kl=1e-6,lambda_perceptual=1e-4, lambda_mse=30.0, lambda_ssim=1e-1, greedy=False):
+    def __init__(self, model, lambda_kl=1e-6,lambda_perceptual=1e-5, lambda_mse=30.0, lambda_ssim=1e-6, greedy=False):
+        # Initialize the criterion with the model and hyperparameters
         self.model = model
+        
+        #Greedy optimization for Reconstruction loss will preserve the sparsity of the latent representation
         self.greedy = greedy
+        
+        #Sparsity constraint
         self.lambda_kl = lambda_kl
+        
+        #Perceptual loss
         self.lambda_perceptual = lambda_perceptual
+        
+        #Reconstruction loss
         self.lambda_mse = lambda_mse
+        
+        #Structural similarity loss
         self.lambda_ssim = lambda_ssim
         
         self.reconstruction_loss = nn.MSELoss()
@@ -376,7 +388,11 @@ class Criterion():
             self.lpips_flag = False
                 
             return loss, recon_loss
-        
+
+
+
+
+#Helper functions        
 def count_parameters(model):
     return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
@@ -392,7 +408,7 @@ def visualize_images(tensor, title="Images"):
     tensor = denormalize(tensor)
     tensor = tensor.detach().cpu().numpy()
     tensor = np.transpose(tensor, (0, 2, 3, 1))
-    fig, axes = plt.subplots(1, len(tensor), figsize=(15, 15))
+    fig, axes = plt.subplots(1, len(tensor), figsize=(15, 8))
     for i, img in enumerate(tensor):
         axes[i].imshow(img)
         axes[i].axis('off')
